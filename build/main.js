@@ -534,8 +534,7 @@ class Ocpp extends utils.Adapter {
                 // enable
                 const cmdObj = {
                     connectorId,
-//                    idTag: 'ioBroker'
-					idTag: xxxxx await this.getStateAsync(`0_userdata.0.Wallbox.MyRFID`);
+					idTag: '050D552D810000'
                 };
                 const limitState = await this.getStateAsync(`${deviceName}.${connectorId}.nnn`);
                 if ((limitState === null || limitState === void 0 ? void 0 : limitState.val) && typeof limitState.val === 'number') {

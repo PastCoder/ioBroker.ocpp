@@ -534,14 +534,15 @@ class Ocpp extends utils.Adapter {
                 // enable
                 const cmdObj = {
                     connectorId,
-                    idTag: 'ioBroker'
+//                    idTag: 'ioBroker'
+					idTag: xxxxx await this.getStateAsync(`0_userdata.0.Wallbox.MyRFID`);
                 };
-                const limitState = await this.getStateAsync(`${deviceName}.${connectorId}.chargeLimit`);
+                const limitState = await this.getStateAsync(`${deviceName}.${connectorId}.nnn`);
                 if ((limitState === null || limitState === void 0 ? void 0 : limitState.val) && typeof limitState.val === 'number') {
                     const limitType = (await this.getStateAsync(`${deviceName}.${connectorId}.chargeLimitType`))
                         .val;
                     const numberPhases = await this._getNumberOfPhases(deviceName, connectorId);
-                    cmdObj.chargingProfile = {
+/*                    cmdObj.chargingProfile = {
                         chargingProfileId: 1,
                         stackLevel: 0,
                         chargingProfilePurpose: 'TxDefaultProfile',
@@ -560,7 +561,8 @@ class Ocpp extends utils.Adapter {
                             ]
                             // minChargingRate: 12 // if needed we add it
                         }
-                    };
+                    }; 
+*/
                 }
                 this.log.debug(`Sending RemoteStartTransaction for ${deviceName}.${connectorId}: ${JSON.stringify(cmdObj)}`);
                 command = new ocpp_eliftech_1.OCPPCommands.RemoteStartTransaction(cmdObj);

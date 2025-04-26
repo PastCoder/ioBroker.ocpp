@@ -209,7 +209,7 @@ class Ocpp extends utils.Adapter {
                 case 'MeterValues': {
                     const meterValuesCommand = command;
                     const connectorId = meterValuesCommand.connectorId;
-                    this.log.info(`Received MeterValues from "${connection.url}.${connectorId}"`);
+                    this.log.debug(`Received MeterValues from "${connection.url}.${connectorId}"`);
                     // {"connectorId":1,"transactionId":1,"meterValue":[{"timestamp":"2021-10-27T17:35:01Z",
                     // "sampledValue":[{"value":"4264","format":"Raw","location":"Outlet","context":"Sample.Periodic",
                     // "measurand":"Energy.Active.Import.Register","unit":"Wh"}]}]}

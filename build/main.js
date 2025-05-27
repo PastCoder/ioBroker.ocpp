@@ -106,11 +106,11 @@ class Ocpp extends utils.Adapter {
                 // request all important values at start, do not await this
                 this.requestNewClient(connection, command);
             }
-            // we give 120 seconds to send next heartbeat - every response can count as heartbeat according to OCPP
+            // we give 180 seconds to send next heartbeat - every response can count as heartbeat according to OCPP
             if (this.clientTimeouts.has(connection.url)) {
                 clearTimeout(this.clientTimeouts.get(connection.url));
             }
-            this.clientTimeouts.set(connection.url, setTimeout(() => this.timedOut(connection.url), 120000));
+            this.clientTimeouts.set(connection.url, setTimeout(() => this.timedOut(connection.url), 180000));
             // for debug purposes log whole command here
             this.log.debug(JSON.stringify(command));
             switch (command.getCommandName()) {
